@@ -13,11 +13,17 @@ const ProductDetail = () => {
     },[id]);
   return (
     <>
-      <div className='container'>
+      <div className='container con'>
         <div className='img'>
            <img src={product.imgSrc} alt='' />
         </div>
-      </div>
+      <div className='text-center'>
+      <h1 className="card-title">{product.title}</h1>
+    <p className="card-text">{product.description}</p>
+    <button className='btn btn-primary'>{product.price} ₹</button>
+    <button className='btn btn-primary mx-3'>Add To Cart</button>
+    </div>
+    </div>
     </>
   )
 }
