@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { items } from './Data';
+import Product from './Product';
+
 
 const ProductDetail = () => {
     const {id} = useParams();
@@ -15,7 +17,7 @@ const ProductDetail = () => {
            const relatedProducts=items.filter((p)=> p.category===product.category);
         //    console.log("Related Products",relatedProduct);
         setRelatedProduct(relatedProducts);
-    },[id]);
+    },[id,product.category]);
   return (
     <>
       <div className='container con'>
@@ -29,6 +31,7 @@ const ProductDetail = () => {
     <button className='btn btn-primary mx-3'>Add To Cart</button>
     </div>
     </div>
+    <Product items={relatedProduct}/>
     </>
   )
 }
