@@ -5,11 +5,16 @@ import { items } from './Data';
 const ProductDetail = () => {
     const {id} = useParams();
     const [product,setProduct] =useState({});
+    const [relatedProduct,setRelatedProduct] =useState([]);
 
     useEffect(()=>{
            const filterProduct = items.filter((product)=> product.id== id);
            console.log(filterProduct);
            setProduct(filterProduct[0]);
+
+           const relatedProducts=items.filter((p)=> p.category===product.category);
+        //    console.log("Related Products",relatedProduct);
+        setRelatedProduct(relatedProducts);
     },[id]);
   return (
     <>
