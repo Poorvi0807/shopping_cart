@@ -10,7 +10,7 @@ const Product = () => {
         {items.map((product)=>(
           
             <>
-            <div key={product.id} className='col-lg-4 my-3'>
+            <div key={product.id} className='col-lg-4 col-md-6 my-3'>
             <div className="card" style={{width: '18rem'}}>
             <Link to={`/product/${product.id}`} style={{display:'flex', justifyContent:'center',alignItems:'center'}}><img src={product.imgSrc} className="card-img-top" alt="..." /></Link>
   
