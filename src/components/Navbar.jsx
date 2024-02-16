@@ -5,8 +5,14 @@ const Navbar = ({setData}) => {
 
   const filterByCategory = (category)=>{
     const element = items.filter((product)=> product.category===category);
+    // console.log(element);
+    setData(element);
+  }
+
+  const filterByPrice = (price)=>{
+    const element = items.filter((product)=> product.price === price);
     console.log(element);
-    // setData(element);
+    setData(element);
   }
   return (
     <header className='sticky-top'>
@@ -20,10 +26,10 @@ const Navbar = ({setData}) => {
     </div>
     <div className='nav-bar-wrapper'>
     <div className='items'>Filter by {"->"}</div>
-    <div className='items'>No Filter</div>
+    <div className='items' onClick={()=> setData(items)}>No Filter</div>
     <div className='items' onClick={()=>filterByCategory('mobiles')}>Mobiles</div>
     <div className='items' onClick={()=>filterByCategory('laptops')}>Laptops</div>
-    <div className='items'>Tablets</div>
+    <div className='items'  onClick={()=>filterByCategory('tablets')}>Tablets</div>
     <div className='items'>{">="}29999</div>
     <div className='items'>{">="}49999</div>
     <div className='items'>{">="}69999</div>
