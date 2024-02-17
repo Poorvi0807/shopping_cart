@@ -20,6 +20,7 @@ const Navbar = ({setData}) => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     navigate(`/search/${searchTerm}`);
+    setSearchTerm("");
     
   }
   return (
