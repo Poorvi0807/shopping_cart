@@ -1,10 +1,19 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Cart = ({cart,setCart}) => {
   return (
     <>
       <div className='container my-5' style={{width:"47%"}}>
-      {cart.map((product)=>{
+      {cart.length==0 ?(
+        <>
+          <div className='text-center'>
+            <h1>Your Cart is Empty</h1>
+            <Link to={"/"} className='btn btn-warning'>Continue Shopping...</Link>
+          </div>
+        </>
+      ):
+        cart.map((product)=>{
         return(
           <>
           <div className="card mb-3 my-5" style={{width:"700px"}}>
@@ -27,6 +36,10 @@ const Cart = ({cart,setCart}) => {
         )
       })}
       
+      </div>
+      <div className='container'>
+        <button className='btn btn-warning'>CheckOut</button>
+        <button onClick={()=>setCart("")} className='btn btn-danger'>Clear Cart</button>
       </div>
     </>
   )
