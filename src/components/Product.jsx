@@ -8,6 +8,7 @@ const Product = ({ items,cart,setCart }) => {
       id,price,title,description,imgSrc
     }
     setCart([...cart,obj]);
+    console.log("cart element = ",cart);
   }
   return (
     <div className='container my-5 text-center'>
@@ -23,7 +24,7 @@ const Product = ({ items,cart,setCart }) => {
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">{product.description}</p>
                 <button className='btn btn-primary'>{product.price} ₹</button>
-                <button className='btn btn-primary mx-3'>Add To Cart</button>
+                <button onClick={()=>addToCart(product.id,product.price,product.title,product.description,product.imgSrc)} className='btn btn-primary mx-3'>Add To Cart</button>
               </div>
             </div>
           </div>
