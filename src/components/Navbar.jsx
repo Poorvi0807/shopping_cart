@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Link, useNavigate} from "react-router-dom";
 import { items } from './Data';
-const Navbar = ({setData}) => {
+const Navbar = ({setData,cart}) => {
    const navigate=useNavigate();
   const [searchTerm,setSearchTerm] = useState("");
 
@@ -31,7 +31,13 @@ const Navbar = ({setData}) => {
     <form onSubmit={handleSubmit} className='search-bar'>
         <input type='text' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder='Search Products'/>
     </form>
-     <Link to={'/cart'} className='cart'>Cart</Link>
+     <Link to={'/cart'} className='cart'><button type="button" className="btn btn-primary position-relative">
+  Cart
+  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    {cart.length}
+    <span className="visually-hidden">unread messages</span>
+  </span>
+</button></Link>
     </div>
     <div className='nav-bar-wrapper'>
     <div className='items'>Filter by {"->"}</div>
