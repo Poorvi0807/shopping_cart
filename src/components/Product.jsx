@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Product = ({ items }) => {
+const Product = ({ items,cart,setCart }) => {
+
+  const addToCart = (id,price,title,description,imgSrc) =>{
+    const obj={
+      id,price,title,description,imgSrc
+    }
+    setCart([...cart,obj]);
+  }
   return (
     <div className='container my-5 text-center'>
       <div className='row'>

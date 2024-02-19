@@ -5,6 +5,7 @@ import Product from './Product'
 const SearchItem = () => {
   // console.log(useParams());
   const [filterData,setFilterData] = useState([]);
+ 
   const {term} =useParams();
 
   useEffect(() => {

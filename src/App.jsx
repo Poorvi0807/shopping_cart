@@ -9,12 +9,13 @@ import { items } from './components/Data'
 
 const App = () => {
   const [data,setData] = useState([...items]);
+  const [cart,setCart] = useState([]);
   return (
     <>
     <Router>
     <Navbar setData={setData} />
     <Routes>
-      <Route path='/' element={<Product items={data} />}></Route>
+      <Route path='/' element={<Product items={data} cart={cart} setCart={setCart} />}></Route>
       <Route path='/product/:id' element={<ProductDetail />}></Route>
       <Route path='/search/:term' element={<SearchItem />}></Route>
       <Route path='/cart/:id' element={<Cart />}></Route>
