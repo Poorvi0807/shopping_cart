@@ -16,8 +16,8 @@ const App = () => {
     <Navbar cart={cart} setData={setData} />
     <Routes>
       <Route path='/' element={<Product items={data} cart={cart} setCart={setCart} />}></Route>
-      <Route path='/product/:id' element={<ProductDetail />}></Route>
-      <Route path='/search/:term' element={<SearchItem />}></Route>
+      <Route path='/product/:id' element={<ProductDetail cart={cart} setCart={setCart} />}></Route>
+      <Route path='/search/:term' element={<SearchItem cart={cart} setCart={setCart}/>}></Route>
       <Route path='/cart' element={<Cart cart={cart} setCart={setCart} />}></Route>
     </Routes>
     

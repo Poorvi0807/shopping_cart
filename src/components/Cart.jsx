@@ -35,12 +35,17 @@ const Cart = ({cart,setCart}) => {
           </>
         )
       })}
-      
+     
       </div>
-      <div className='container'>
-        <button className='btn btn-warning'>CheckOut</button>
+      {
+        cart.length!=0 && (
+          <div className='container text-center my-5' style={{ display:"flex", justifyContent:"center" , alignItems:"center"}}>
+        <button className='btn btn-warning mx-5'>CheckOut</button>
         <button onClick={()=>setCart("")} className='btn btn-danger'>Clear Cart</button>
       </div>
+        )
+      }
+   
     </>
   )
 }

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import { items } from './Data';
+import { FaCartArrowDown } from "react-icons/fa";
+
 const Navbar = ({setData,cart}) => {
+  console.log(useLocation());
+  const location = useLocation();
    const navigate=useNavigate();
   const [searchTerm,setSearchTerm] = useState("");
 
@@ -32,14 +36,17 @@ const Navbar = ({setData,cart}) => {
         <input type='text' value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder='Search Products'/>
     </form>
      <Link to={'/cart'} className='cart'><button type="button" className="btn btn-primary position-relative">
-  Cart
+     <FaCartArrowDown style={{fontSize:"1.5rem"}} />
   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
     {cart.length}
     <span className="visually-hidden">unread messages</span>
   </span>
 </button></Link>
     </div>
-    <div className='nav-bar-wrapper'>
+
+    {
+       location.pathname=="/" && (
+        <div className='nav-bar-wrapper'>
     <div className='items'>Filter by {"->"}</div>
     <div className='items' onClick={()=> setData(items)}>No Filter</div>
     <div className='items' onClick={()=>filterByCategory('mobiles')}>Mobiles</div>
@@ -51,6 +58,10 @@ const Navbar = ({setData,cart}) => {
     <div className='items'  onClick={()=> filterByPrice(89999)}>{">="}89999</div>
 
     </div>
+       )
+    }
+
+   
     </header>
   )
 }
